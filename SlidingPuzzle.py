@@ -13,28 +13,6 @@ def gen_puzzle(size):
     
     return ret
 
-def view_matrix(matrix):
-    ret = ""
-    for l in matrix:
-        ret += "\n"
-        for element in l:
-            ret += str(element) + " "
-    
-    print(ret)
-
-def check_valid(matrix):
-    s = set()
-
-    [s.add(element) for row in matrix for element in row]
-
-    if len(s) != len(matrix)*len(matrix):
-        return False
-    else:
-        return True
-
-# aaa = gen_puzzle(3)
-# view_matrix(aaa)
-
 class Game:
     def __init__(self, matrix):
         self.matrix = matrix
