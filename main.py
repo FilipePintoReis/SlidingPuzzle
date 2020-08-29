@@ -1,6 +1,6 @@
 from random import choice
 from Direction.Direction import Direction
-
+from Utilities.Utilities import * 
 
 class Board:
     from Board.SpecialMethods import __init__, __repr__
@@ -12,38 +12,15 @@ class Board:
 
 
 
-l = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,0]]
+#l = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,0]]
+l = gen_puzzle(5)
+
 
 b = Board(l)
 
 print(b)
 
-print(b.check_if_in_place(0))
 
+b.update_pieces_in_place()
 
-
-
-
-# def gen_puzzle(size):
-#     l = [el for el in range(0, size*size)]
-#     ret = []
-
-#     for i in range(size):
-#         ret.append([])
-#         for k in range(size):
-#             c = choice(l)
-#             ret[i].append(c)
-#             l.remove(c)
-    
-#     return ret
-
-
-# def check_valid(matrix):
-#     s = set()
-
-#     [s.add(element) for row in matrix for element in row]
-
-#     if len(s) != len(matrix)*len(matrix):
-#         return False
-#     else:
-#         return True
+print(b.pieces_in_place)

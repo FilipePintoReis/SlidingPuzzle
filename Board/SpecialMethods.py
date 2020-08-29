@@ -10,7 +10,7 @@ def __init__(self, board):
             if element in self.piece_pos: raise Exception('Repeated number')
             self.piece_pos[element] = [x,y]
 
-    #self.update_pieces_in_place()
+    self.update_pieces_in_place()
 
 def __repr__(self):
     ret = ''
