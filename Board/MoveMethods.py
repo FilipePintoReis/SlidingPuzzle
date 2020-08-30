@@ -21,8 +21,8 @@ def move_zero(self, dir): # TODO use the save functions
 
     return True
 
-def move_piece_across_path(self, piece, path):
+def move_piece_across_path(self, piece, path): # TODO 
     pass
 
-def ult_and_penult_and_place(self, ult_piece):
+def ult_and_penult_and_place(self, ult_piece): # TODO 
     pass

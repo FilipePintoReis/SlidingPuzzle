@@ -12,15 +12,12 @@ class Board:
 
 
 
-#l = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,0]]
-l = gen_puzzle(5)
+l = [[1,2,3,4], [5,6,7,8], [10,9,11,12], [13,14,15,0]]
+#l = gen_puzzle(5)
 
 
 b = Board(l)
 
 print(b)
 
-
-b.update_pieces_in_place()
-
-print(b.pieces_in_place)
+print(b.check_if_in_place(0))

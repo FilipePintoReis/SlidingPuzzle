@@ -1,6 +1,5 @@
 
-b = set()
+def f():
+    return (1, 2)
 
-b.add(1)
-
-print(len(b))
+print(f())

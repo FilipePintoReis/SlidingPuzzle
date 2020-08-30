@@ -1,33 +1,30 @@
-def choose_next_piece(self):
+def choose_next_piece(self): # TODO 
     pass
 
-def check_if_penult(self, piece):
+def check_if_penult(self, piece): # TODO 
     pass
 
 def check_if_in_place(self, piece):
-    x, y = self.piece_pos[piece]
+    actualx, actualy = self.piece_pos[piece]
+    x, y = self.calculate_piece_posis(piece)
 
-    if piece == 0:
-        return x == self.side - 1 and y == self.side - 1
-    
-    if piece % self.side != 0:
-        if x != (piece % self.side) - 1: return False
-    else:
-        if x != self.side - 1: return False
-
-    if piece % self.side == 0:
-        if y != (piece/self.side) - 1:
-            return False
-    else:
-        if y != int(piece/self.side):
-            return False
-    
-    return True
+    return x == actualx and y == actualy
 
 def calculate_piece_posis(self, piece):
-    pass
+    if piece == 0:
+        return self.side - 1, self.side - 1
+    
+    x, y = None, None
 
-def save_move(self, dir):
+    if piece % self.side != 0: x = (piece % self.side) - 1
+    else: x = self.side - 1
+
+    if piece % self.side == 0: y = int(piece/self.side) - 1
+    else: y = int(piece/self.side)
+    
+    return x, y
+
+def save_move(self, dir): # TODO 
     pass
 
 def update_board(self, pieces):
@@ -54,7 +51,6 @@ def update_pieces_in_place(self):
                     continue
 
                 p = piece + k
-                print(p)
 
                 if not self.check_if_in_place(p):
                     stop = True
@@ -71,7 +67,6 @@ def update_pieces_in_place(self):
                     continue
 
                 p = piece + k * self.side
-                print(p)
 
                 if not self.check_if_in_place(p):
                     stop = True
