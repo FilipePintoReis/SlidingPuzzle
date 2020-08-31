@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-def move_zero(self, dir): # TODO use the save functions
+def move_zero(self, dir): 
     arr = deepcopy(self.piece_pos[0])
     piece = 0
 
@@ -16,6 +16,8 @@ def move_zero(self, dir): # TODO use the save functions
     
     self.piece_pos[0] = [xp, yp]
     self.piece_pos[piece] = [xz, yz]
+
+    self.save_move(piece)
 
     self.update_board([0, piece])
 

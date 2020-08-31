@@ -12,12 +12,37 @@ class Board:
 
 
 
-l = [[1,2,3,4], [5,6,7,8], [10,9,11,12], [13,14,15,0]]
-#l = gen_puzzle(5)
+li = [[1,2,3,4], [5,6,7,8], [10,9,11,12], [13,14,15,0]]
+#li = gen_puzzle(5)
 
 
-b = Board(l)
+l = Direction('l')
+d = Direction('d')
+u = Direction('u')
+r = Direction('r')
+
+b = Board(li)
 
 print(b)
 
-print(b.check_if_in_place(0))
+b.move_zero(l)
+
+print(b.moves)
+
+b.move_zero(l)
+
+print(b.moves)
+
+b.move_zero(u)
+
+print(b.moves)
+
+b.move_zero(r)
+
+print(b.moves)
+
+b.move_zero(d)
+
+print(b.moves)
+
+

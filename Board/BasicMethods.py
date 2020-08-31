@@ -24,8 +24,8 @@ def calculate_piece_posis(self, piece):
     
     return x, y
 
-def save_move(self, dir): # TODO 
-    pass
+def save_move(self, piece):
+    self.moves.append(piece)
 
 def update_board(self, pieces):
     if pieces == []:
@@ -34,7 +34,6 @@ def update_board(self, pieces):
     for piece in pieces:
         x, y = self.piece_pos[piece]
         self.board[y][x] = piece
-
 
 def update_pieces_in_place(self):
     counter = len(self.pieces_in_place)
