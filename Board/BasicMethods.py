@@ -1,8 +1,13 @@
 def choose_next_piece(self): # TODO 
     pass
 
-def check_if_penult(self, piece): # TODO 
-    pass
+def check_if_penult(self, piece):
+    x, y = self.calculate_piece_posis(piece)
+    
+    if x == self.side - 2: return True
+    if y == self.side - 2: return True
+
+    return False
 
 def check_if_in_place(self, piece):
     actualx, actualy = self.piece_pos[piece]
