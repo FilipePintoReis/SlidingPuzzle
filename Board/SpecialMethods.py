@@ -2,6 +2,7 @@ def __init__(self, board):
     self.board = board
     self.piece_pos = {}
     self.pieces_in_place = set()
+    self.piece_order = []
     self.side = len(self.board)
     self.moves = []
     
@@ -10,6 +11,8 @@ def __init__(self, board):
             if element in self.piece_pos: raise Exception('Repeated number')
             self.piece_pos[element] = [x,y]
 
+
+    self.create_piece_order()
     self.update_pieces_in_place()
 
 def __repr__(self):

@@ -1,5 +1,9 @@
-def choose_next_piece(self): # TODO 
-    pass
+def choose_next_piece(self):
+    for piece in self.piece_order:
+        if piece not in self.pieces_in_place:
+            return piece
+
+    return None
 
 def check_if_penult(self, piece):
     x, y = self.calculate_piece_posis(piece)
@@ -41,41 +45,28 @@ def update_board(self, pieces):
         self.board[y][x] = piece
 
 def update_pieces_in_place(self):
-    counter = len(self.pieces_in_place)
+    for piece in self.piece_order:
+        if self.check_if_in_place(piece):
+            self.pieces_in_place.add(piece)
+        else: break
 
+def create_piece_order(self):
     piece = 0
-    stop = False
     
     for i in range(0, 1 + 2 * (self.side - 3)):
         if i % 2 == 0: # Horizontal
             piece += 1
+            
             for k in range(self.side - int(i/2)):
-                if counter > 0:
-                    counter -= 1
-                    continue
 
                 p = piece + k
-
-                if not self.check_if_in_place(p):
-                    stop = True
-                    break
-                else:
-                    self.pieces_in_place.add(p)
+                self.piece_order.append(p)
 
 
         elif i % 2 == 1: # Vertical
             piece += self.side
+            
             for k in range(self.side - int((i+1)/2)):
-                if counter > 0:
-                    counter -= 1
-                    continue
-
+                
                 p = piece + k * self.side
-
-                if not self.check_if_in_place(p):
-                    stop = True
-                    break
-                else:
-                    self.pieces_in_place.add(p)
-        
-        if stop: break
+                self.piece_order.append(p)
