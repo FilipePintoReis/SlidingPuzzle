@@ -1,6 +1,7 @@
 def __init__(self, board):
     self.board = board
     self.piece_pos = {}
+    self.piece_correct_pos = {}
     self.pieces_in_place = set()
     self.piece_order = []
     self.side = len(self.board)

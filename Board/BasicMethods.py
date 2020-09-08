@@ -25,11 +25,18 @@ def calculate_piece_posis(self, piece):
     
     x, y = None, None
 
-    if piece % self.side != 0: x = (piece % self.side) - 1
-    else: x = self.side - 1
+    if piece not in self.piece_correct_pos:
+        if piece % self.side != 0: x = (piece % self.side) - 1
+        else: x = self.side - 1
 
-    if piece % self.side == 0: y = int(piece/self.side) - 1
-    else: y = int(piece/self.side)
+        if piece % self.side == 0: y = int(piece/self.side) - 1
+        else: y = int(piece/self.side)
+
+        self.piece_correct_pos[piece] = [x, y]
+    
+    else:
+        x = self.piece_correct_pos[piece][0]
+        y = self.piece_correct_pos[piece][1]
     
     return x, y
 
